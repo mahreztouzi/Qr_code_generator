@@ -28,7 +28,7 @@ const EmployeeList = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     // créez une requête Firestore pour récupérer les utilisateurs
-    const q = query(collection(db, "Users"));
+    const q = query(collection(db, "Users"), where("isConfirmed", "==", true));
 
     // utilisez onSnapshot pour écouter les changements en temps réel de la collection
     const unsubscribe = onSnapshot(q, (querySnapshot) => {

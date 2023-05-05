@@ -44,6 +44,7 @@ const Profile = () => {
 
     return unsubscribe;
   }, []);
+
   const signOut = () => {
     logoutUser();
     navigate("/");
@@ -56,6 +57,7 @@ const Profile = () => {
           <img src={userimg} alt="" />
 
           <h5>Véhicule : </h5>
+
           <button className="mainBtn mt-3" onClick={signOut}>
             Log out
           </button>

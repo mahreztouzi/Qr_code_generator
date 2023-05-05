@@ -17,6 +17,8 @@ import {
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { logoutUser } from "../Login/FirebaseAuth";
+import QRCode from "qrcode.react";
+
 const UserProfile = () => {
   const auth = getAuth();
   const [userId, setUserId] = useState();
@@ -54,6 +56,23 @@ const UserProfile = () => {
           <h3>{username}</h3>
           <h5>{mail}</h5>
           <h5>Véhicule : {immatricule} </h5>
+          <h1
+            style={{
+              paddingBottom: "10px",
+            }}
+          >
+            Mon code QR
+          </h1>
+          <div
+            style={{
+              margin: "0 auto",
+            }}
+          >
+            <QRCode
+              value={`Nom: ${username}\nEmail: ${mail}\nVehicule: ${immatricule}`}
+              style={{ width: "40%", height: "40%" }}
+            />
+          </div>
           <button className="mainBtn mt-3" onClick={signOut}>
             Log out
           </button>

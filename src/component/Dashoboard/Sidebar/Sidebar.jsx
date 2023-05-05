@@ -41,7 +41,7 @@ const Sidebar = ({ setTitle }) => {
           <>
             <li>
               <NavLink
-                onClick={() => setTitle("Order List")}
+                onClick={() => setTitle("Listes des employés")}
                 activeclassname="activePage"
                 to="/dashboard/employeeList"
               >
@@ -51,7 +51,7 @@ const Sidebar = ({ setTitle }) => {
             </li>
             <li>
               <NavLink
-                onClick={() => setTitle("Add Service")}
+                onClick={() => setTitle("Employés non confirmés")}
                 activeclassname="activePage"
                 to="/dashboard/addEmployee"
               >

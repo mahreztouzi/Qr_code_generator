@@ -11,7 +11,7 @@ import { SET_ADMIN, useAppContext } from "../../../context";
 
 const Dashboard = () => {
   const [sideToggle, setSideToggle] = useState(false);
-  const [title, setTitle] = useState("Easy Consulting");
+  const [title, setTitle] = useState("Admin");
 
   return (
     <div id="dashboard">

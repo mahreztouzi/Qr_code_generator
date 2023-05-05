@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { signupUser } from "./FirebaseAuth";
+import dbp, { signupUser } from "./FirebaseAuth";
 import {
   collection,
   query,
@@ -18,6 +18,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./FirebaseAuth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRef } from "react";
 import {
   faEnvelope,
   faLock,
@@ -25,9 +26,9 @@ import {
   faKey,
   faCar,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { usersRef } from "./FirebaseAuth";
 import { useState } from "react";
-
+import Swal from "sweetalert2";
 const SignUpForm = () => {
   const {
     register,
@@ -52,7 +53,7 @@ const SignUpForm = () => {
           immatricule: isChecked
             ? getValues("immatricule") || "valeur par défaut"
             : "pas de voiture",
-
+          isConfirmed: false,
           createdAt: Timestamp.fromDate(new Date()),
           password: getValues("password"),
         };
@@ -85,6 +86,54 @@ const SignUpForm = () => {
       event.preventDefault();
     }
   }
+  // const onSubmit = async () => {
+  //   const email = getValues("email");
+
+  //   // Récupérez tous les documents de la collection "users"
+  //   const q = query(collection(db, "Users"));
+
+  //   // Utilisez get() pour récupérer tous les documents
+  //   try {
+  //     const querySnapshot = await getDocs(q);
+  //     const users = querySnapshot.docs.map((doc) => doc.data());
+
+  //     // Vérifiez si l'email existe dans la liste de tous les utilisateurs
+  //     const emailExists = users.some((user) => user.email === email);
+
+  //     if (emailExists) {
+  //       console.log("Email déjà utilisé");
+  //     } else {
+  //       console.log("Email disponible");
+  //       const infouser = {
+  //         name: getValues("name"),
+  //         email: email,
+  //         secretCode: getValues("secretCode"),
+  //         immatricule: isChecked
+  //           ? getValues("immatricule") || "valeur par défaut"
+  //           : "pas de voiture",
+  //         createdAt: Timestamp.fromDate(new Date()),
+  //         password: getValues("password"),
+  //         isConfirmed: false,
+  //       };
+
+  //       addDoc(collection(db, "Users"), infouser).then(() => {
+  //         console.log("Utilisateur ajouté à Firestore");
+  //         // redirigez l'utilisateur vers une page de confirmation ou une autre page de votre choix
+  //         Swal.fire({
+  //           title: "Bravo!",
+  //           text: "Parfait ! l'admin va confirmer votre compte au plus vite possible",
+  //           icon: "success",
+  //           confirmButtonText: "OK",
+  //         }).then(() => {
+  //           window.location.reload();
+  //         });
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error("Erreur lors de la récupération des utilisateurs", error);
+  //   }
+  // };
+
   const [isChecked, setIsChecked] = useState(false);
 
   function handleCheckboxChange(event) {
