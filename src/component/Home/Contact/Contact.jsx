@@ -18,7 +18,7 @@ const Contact = () => {
           <Col md={6}>
             <Fade duration={2000} left>
               <form onSubmit={handleSubmit} className="contactForm">
-                <h4 className="miniTitle">Prendre un rendez-vous</h4>
+                <h4 className="miniTitle">Prenez un rendez-vous</h4>
                 <h5 className="sectionTitle">En un seul click</h5>
                 <Row>
                   <Col md={12} lg={6}>

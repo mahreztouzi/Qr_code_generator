@@ -1,66 +1,67 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import PopOver from '../../Shared/PopOver/PopOver';
-import AdminDashboard from '../AdminDashboard/AdminDashboard';
-import Sidebar from '../Sidebar/Sidebar';
-import UserDashboard from '../UserDashboard/UserDashboard/UserDashboard';
-import './Dashboard.css';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { SET_ADMIN, useAppContext } from '../../../context';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import PopOver from "../../Shared/PopOver/PopOver";
+import AdminDashboard from "../AdminDashboard/AdminDashboard";
+import Sidebar from "../Sidebar/Sidebar";
+import "./Dashboard.css";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SET_ADMIN, useAppContext } from "../../../context";
 
 const Dashboard = () => {
-    const { state: { user, admin }, dispatch } = useAppContext()
-    const [sideToggle, setSideToggle] = useState(false)
-    const [title, setTitle] = useState('Easy Consulting')
+  const [sideToggle, setSideToggle] = useState(false);
+  const [title, setTitle] = useState("Easy Consulting");
 
-    useEffect(() => {
-        axios.get(`https://immense-river-40491.herokuapp.com/admin?email=${user.email}`)
-        .then(res => {
-            if(res.data.length > 0){
-                dispatch({type: SET_ADMIN, payload: true})
-            }
-        })
-    },[dispatch, user.email])
-
-    return (
-        <div id="dashboard">
-            <div id="sidebar" className={ sideToggle ? "active" : "" }>
-                <div className="sidebarContent">
-                    <Sidebar setTitle={setTitle}/>
-                    <div className="backBtnBox">
-                        <Link to="/">
-                            <button className="backBtn"> 
-                            <FontAwesomeIcon icon={faSignOutAlt}/>
-                             back to home</button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-            <div id="pageContent">
-                <div className="dashBoardHeader">
-                    <div className="d-flex align-items-center">
-                        <div id="nav-icon"
-                        className={sideToggle ? "menu-btn" : "menu-btn open"}
-                        onClick={() => setSideToggle(!sideToggle)}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <h3>{title}</h3>
-                    </div>
-                    <PopOver/> 
-                </div>
-                 {
-                    admin ? <AdminDashboard/> : <UserDashboard/>
-                } 
-            </div>
+  return (
+    <div id="dashboard">
+      <div id="sidebar" className={sideToggle ? "active" : ""}>
+        <div className="sidebarContent">
+          <Sidebar setTitle={setTitle} />
+          <div className="backBtnBox">
+            <Link to="/">
+              <button
+                className="backBtn"
+                onClick={() => {
+                  localStorage.removeItem("isAuthenticated");
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faSignOutAlt}
+                  style={{
+                    marginRight: "10px",
+                  }}
+                />
+                Deconnexion
+              </button>
+            </Link>
+          </div>
         </div>
-    )
-}
+      </div>
+      <div id="pageContent">
+        <div className="dashBoardHeader">
+          <div className="d-flex align-items-center">
+            <div
+              id="nav-icon"
+              className={sideToggle ? "menu-btn" : "menu-btn open"}
+              onClick={() => setSideToggle(!sideToggle)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <h3>{title}</h3>
+          </div>
+          <PopOver />
+        </div>
+        {/* {admin ? <AdminDashboard /> : <UserDashboard />} */}
+        <AdminDashboard />
+      </div>
+    </div>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

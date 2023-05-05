@@ -81,7 +81,7 @@ const NavBar = () => {
                 </Link>
               )} */}
               <Link to="/login">
-                <button className="loginBtn">Employée</button>
+                <button className="loginBtn">Employé</button>
               </Link>
             </Nav.Item>
           </Nav>

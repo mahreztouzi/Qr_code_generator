@@ -26,7 +26,7 @@ const SignInForm = ({ handleResponse }) => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="sign-in-form">
-      <h2 className="title">Sign in</h2>
+      <h2 className="title">Connexion</h2>
       <div className="input-field">
         <span className="fIcon">
           <FontAwesomeIcon icon={faEnvelope} />
@@ -47,7 +47,7 @@ const SignInForm = ({ handleResponse }) => {
       {errors.password && (
         <span className="text-warning">Champ obligatoire</span>
       )}
-      <input className="iBtn" type="submit" value="sign In" />
+      <input className="iBtn" type="submit" value="Connexion" />
     </form>
   );
 };

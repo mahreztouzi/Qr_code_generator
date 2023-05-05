@@ -54,9 +54,8 @@ const Profile = () => {
         <h2>Profile</h2>
         <div className="profileInfo">
           <img src={userimg} alt="" />
-          <h3>{username}</h3>
-          <h5>{mail}</h5>
-          <h5>Véhicule : {immatricule} </h5>
+
+          <h5>Véhicule : </h5>
           <button className="mainBtn mt-3" onClick={signOut}>
             Log out
           </button>

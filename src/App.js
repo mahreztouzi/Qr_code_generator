@@ -6,7 +6,8 @@ import Dashboard from "./component/Dashoboard/Dashboard/Dashboard";
 import LoginModal from "./component/Login/LoginModal";
 import PrivateRoute from "./component/Login/PrivateRoute";
 import NotFound from "./component/NotFound";
-import UserProfile from "./component/Dashoboard/Profile/Profile";
+import UserProfile from "./component/UserProfile/UserProfile";
+import Admin from "./component/Admin/Admin";
 export const UserContext = createContext();
 
 const App = () => {
@@ -17,7 +18,15 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<LoginModal />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route
+            path="/dashboard/*"
+            element={
+              <PrivateRoute redirectTo="/admin">
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/employee" element={<UserProfile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
