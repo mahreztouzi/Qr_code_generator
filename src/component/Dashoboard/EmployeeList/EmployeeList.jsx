@@ -23,7 +23,7 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Swal from "sweetalert2";
-
+import QRCode from "qrcode.react";
 const EmployeeList = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -58,7 +58,7 @@ const EmployeeList = () => {
         rowSpacing={1}
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         sx={{
-          height: "60vh",
+          height: "100%",
           overflow: "auto",
           padding: "1%",
         }}
@@ -128,6 +128,10 @@ const EmployeeList = () => {
               >
                 <strong> Véhicule :</strong> {user.immatricule}
               </Typography>
+              <QRCode
+                value={`Nom: ${user.name}\nEmail: ${user.email}\nVehicule: ${user.immatricule}`}
+                style={{ width: "40%", height: "40%" }}
+              />
             </Box>
           </Grid>
         ))}
