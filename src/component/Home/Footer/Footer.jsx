@@ -60,8 +60,8 @@ const Footer = () => {
         <FooterCol key="4" menuItems={otherLinks} title="OTHER LINKS" />
       </Row>
       <p className="copyRight">
-        Copyright &copy; 2021 <span className="fHighlight">Ujjal zaman</span>.
-        All rights reserved.
+        Copyright &copy; 2023 <span className="fHighlight">Scan Pass</span>.
+        Tous droits réservés.
       </p>
     </section>
   );

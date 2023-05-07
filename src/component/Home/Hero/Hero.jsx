@@ -1,5 +1,6 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import pass from "../../../Assets/pass.jpg";
 import { alpha, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
@@ -28,8 +29,8 @@ const Hero = () => {
               color="text.primary"
               sx={{ fontWeight: 700 }}
             >
-              Easy Consulting <br />
-              Start Your{" "}
+              Scan Pass <br />
+              Votre solution{" "}
               <Typography
                 color={"primary"}
                 component={"span"}
@@ -42,7 +43,7 @@ const Hero = () => {
                 }}
               >
                 <Typed
-                  strings={["Business", "Startup"]}
+                  strings={["Rapide ", "et", "efficace"]}
                   typeSpeed={100}
                   loop={true}
                 />
@@ -51,10 +52,10 @@ const Hero = () => {
           </Box>
           <Box marginBottom={3}>
             <Typography variant="h6" component="p" color="text.secondary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum,
-              delectus.
-              <br />
-              Lorem ipsum dolor sit amet.
+              Fini les retards et les files d'attente à l'entrée, ScanPass est
+              un système rapide, sûr et fiable qui permet de contrôler l'accès
+              des employés de manière efficace. Avec ScanPass, vous pouvez vous
+              concentrer sur l'essentiel : la croissance de votre entreprise.
             </Typography>
           </Box>
           <Box
@@ -68,20 +69,21 @@ const Hero = () => {
               size="large"
               fullWidth={isMd ? false : true}
               href="#contact"
+              sx={{ ":hover": { background: "#7355F7", color: "white" } }}
             >
               Prendre rendez-vous
             </Button>
             {/* <Box
-                            component={Button}
-                            variant="outlined"
-                            color="primary"
-                            size="large"
-                            marginTop={{ xs: 2, sm: 0 }}
-                            marginLeft={{ sm: 2 }}
-                            fullWidth={isMd ? false : true}
-                        >
-                            Learn more
-                        </Box> */}
+              component={Button}
+              variant="outlined"
+              color="primary"
+              size="large"
+              marginTop={{ xs: 2, sm: 0 }}
+              marginLeft={{ sm: 2 }}
+              fullWidth={isMd ? false : true}
+            >
+              Learn more
+            </Box> */}
           </Box>
         </Box>
       </Grid>
@@ -100,7 +102,7 @@ const Hero = () => {
           component={LazyLoadImage}
           height={1}
           width={1}
-          src={"https://assets.maccarianagency.com/screenshots/dashboard.png"}
+          src={pass}
           alt="..."
           effect="blur"
           boxShadow={3}

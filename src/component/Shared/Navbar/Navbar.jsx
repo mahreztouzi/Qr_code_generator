@@ -35,8 +35,8 @@ const NavBar = () => {
     >
       <Container>
         <Navbar.Brand as={Link} to="/" onClick={scrollTop} className="navBrn">
-          <FontAwesomeIcon icon={faBuffer} className="brnIcon" /> Easy{" "}
-          <span className="navHighlight">Consulting</span>
+          <FontAwesomeIcon icon={faBuffer} className="brnIcon" /> Scan{" "}
+          <span className="navHighlight">Pass</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" />

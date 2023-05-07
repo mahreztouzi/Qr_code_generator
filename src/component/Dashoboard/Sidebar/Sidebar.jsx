@@ -21,7 +21,7 @@ const Sidebar = ({ setTitle }) => {
           <FontAwesomeIcon icon={faBuffer} />
         </div>
         <h2>
-          Easy <span className="navHighlight">Consulting</span>
+          Scann <span className="navHighlight">Pass</span>
         </h2>
       </div>
       <nav id="sideNavbar">

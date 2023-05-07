@@ -141,7 +141,18 @@ const AddEmployee = () => {
               >
                 <strong> Véhicule :</strong> {user.immatricule}
               </Typography>
-              <Button onClick={() => confirmUser(user.id)}>confirm</Button>
+              <Button
+                variant="contained"
+                sx={{
+                  margin: "3px",
+                  borderRadius: "15px",
+                  backgroundColor: "#7355F7",
+                  fontSize: "13px",
+                }}
+                onClick={() => confirmUser(user.id)}
+              >
+                Valider
+              </Button>
             </Box>
           </Grid>
         ))}

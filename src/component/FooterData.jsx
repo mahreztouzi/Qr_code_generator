@@ -24,17 +24,17 @@ export const otherLinks = [
 ];
 
 export const footerInfo = [
-  { icon: faBuffer, info1: "EASY CONSULTING", id: 1 },
+  { icon: faBuffer, info1: "Scan Pass", id: 1 },
   {
     icon: faMobileAlt,
-    info1: "+13322176301",
-    info2: "ujjalzaman@gmail.com",
+    info1: "+213 000 000",
+    info2: "scanpass@gmail.com",
     id: 2,
   },
   {
     icon: faMapMarkedAlt,
-    info1: "bronx,new york, USA",
-    info2: "Nevada,USA",
+    info1: "UMMTO, Tiz Ouzou",
+    info2: "INFO, Bastos",
     id: 3,
   },
 ];
